@@ -27,6 +27,6 @@ export default function Main(){
 }
 
 export async function loadApi(){
-    const data = await fetch(' https://pokeapi.co/api/v2/pokemon').then((r)=>r.json());
+    const data = await fetch(' https://pokeapi.co/api/v2/pokemon/?limit=60').then((r)=>r.json());
     return data
 }
