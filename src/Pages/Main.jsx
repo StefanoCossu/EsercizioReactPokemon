@@ -10,7 +10,7 @@ export default function Main(){
     return <div className='container mt-5'>
         <div className="row">
         <div className="col-12 d-flex justify-content-center align-items-center my-5">
-                <input type="text" onChange={(e)=>setSearched(e.target.value)} value={searched}/>
+                <input type="text" placeholder="Scrivi nome Pokemon" onChange={(e)=>setSearched(e.target.value)} value={searched}/>
                 <p>{searched}</p>
             </div>
         {data &&(
