@@ -1,32 +1,19 @@
-import Card from "../Components/Card/Card"
-import {useLoaderData} from "react-router-dom"
-import {useState } from "react"
+import {Link} from "react-router-dom"
+
 export default function Main(){
-
-    const [searched, setSearched]=useState("");
-
-    let data = useLoaderData()
-   
-    return <div className='container mt-5'>
-        <div className="row">
-        <div className="col-12 d-flex justify-content-center align-items-center my-5">
-                <input type="text" placeholder="Scrivi nome Pokemon" onChange={(e)=>setSearched(e.target.value)} value={searched}/>
-                <p>{searched}</p>
+    return <div className="container mt-5">
+        <div className="row pt-5">
+            <div className="col-12 my-5">
+                <h1 className="lead display-1 text-center">Pagina Principale</h1>
             </div>
-        {data &&(
-            data.results.map((el)=>{
-            return  <div className={`col-12 col-md-4 ${searched == "" ? "d-block" : el.name.includes(searched.toLowerCase()) ? "d-block" : "d-none" }`} key={el.name}>
-                <Card pokemon={el}/>
-             </div>
-
-            })
-        )}
+            <div className="col-6 d-flex flex-column align-items-center">
+                <h2>Qualcosa di completamente diverso</h2>
+                <Link to={"/different"} className="btn btn-primary bg-success">Scopri</Link>
+            </div>
+            <div className="col-6 d-flex flex-column align-items-center">
+                <h2>Pokemon</h2>
+                <Link to={"/pokemon"} className="btn btn-primary bg-success">Vai ai Pokemon</Link>
+            </div>
         </div>
     </div>
-    
-}
-
-export async function loadApi(){
-    const data = await fetch(' https://pokeapi.co/api/v2/pokemon/?limit=60').then((r)=>r.json());
-    return data
 }

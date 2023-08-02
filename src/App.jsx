@@ -1,7 +1,9 @@
 import {RouterProvider,createBrowserRouter} from "react-router-dom"
 import Root from "./Pages/Root";
-import Main, { loadApi } from './Pages/Main';
 import Details, {detail} from "./Pages/Details";
+import Pokemon, { loadApi } from './Pages/Pokemon';
+import Main from "./Pages/Main";
+import Different, { loadDif } from './Pages/Different';
 
 
 
@@ -17,10 +19,20 @@ function App() {
       loader: loadApi
     },
     {
-      path:`/details/:name`,
+      path: "/pokemon",
+      element: <Pokemon />,
+      loader: loadApi
+    },
+    {
+      path:`/pokemon/details/:name`,
       element:<Details/>,
       loader: detail,
-    }
+    },
+    {
+      path: "/different",
+      element: <Different />,
+      loader: loadDif
+    },
   ]
   }])
 return <RouterProvider router={router}/>
