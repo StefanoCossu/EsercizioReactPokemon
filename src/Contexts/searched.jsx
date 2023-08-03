@@ -4,6 +4,7 @@ import { createContext,useEffect,useState } from "react";
 export const Context = createContext()
 
 export function ContextProvider(props) {
+    // Salva la localStorage preesistente se c'è o non è vuota per rimandarlo allo useState che altrimenti azzererebbe all'inizio quindi ad ogni refresh
     let saved = localStorage.getItem("prefered") ? (localStorage.getItem("prefered").length > 0 ? localStorage.getItem("prefered") : null) : null
     
     const [searched, setSearched] = useState("");
