@@ -4,23 +4,23 @@ import { createContext,useEffect,useState } from "react";
 export const Context = createContext()
 
 export function ContextProvider(props) {
+    let saved = localStorage.getItem("prefered").length > 0 ? localStorage.getItem("prefered") : saved
+    
     const [searched, setSearched] = useState("");
-    const [prefered,setPrefered] = useState([]);
+    const [prefered,setPrefered] = useState(saved ? JSON.parse(saved) : []);
     // controllare se già presente qualcosa nel local storage
     
     useEffect(()=>{
-        if (localStorage.getItem("prefered")) { 
+        if (localStorage.getItem("prefered").length > 0) { 
             setPrefered(()=>JSON.parse(localStorage.getItem("prefered")))
-            console.log("sono qui");
-        }
-        // }else{
-        //     localStorage.setItem("prefered", JSON.stringify(prefered))
-        // } 
+        }else{
+            setPrefered(()=>[])
+        } 
     },[])
 
     useEffect(()=>{
         localStorage.setItem("prefered", JSON.stringify(prefered))
-        // console.log(prefered);
+        
     },[prefered])
     const togglePrefered = (id) => {
         // console.log(JSON.stringify(prefered));
