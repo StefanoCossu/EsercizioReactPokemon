@@ -9,14 +9,12 @@ export function ContextProvider(props) {
     
     const [searched, setSearched] = useState("");
     const [prefered,setPrefered] = useState(saved ? JSON.parse(saved) : []);
+
     // controllare se già presente qualcosa nel local storage
-    
     useEffect(()=>{
         if (localStorage.getItem("prefered")) { 
             setPrefered(()=>JSON.parse(localStorage.getItem("prefered")))
-        }else{
-            setPrefered(()=>[])
-        } 
+        }
     },[])
 
     useEffect(()=>{
@@ -24,8 +22,10 @@ export function ContextProvider(props) {
         
     },[prefered])
     const togglePrefered = (id) => {
+
         // console.log(JSON.stringify(prefered));
         // usiamo find/include/filter per vedere se l'id è nella lista dei favoriti
+
         const isInArray = prefered.findIndex( el => el === id)
         
         if(isInArray === -1){
@@ -34,8 +34,6 @@ export function ContextProvider(props) {
             setPrefered(prev => prev.toSpliced( isInArray, 1))
             
         }
-        // console.log(prefered);
-
         localStorage.setItem("prefered", JSON.stringify(prefered))
 
         // se non c'è array.push, setPrefered((prev)=>[...prev,id])
@@ -50,6 +48,5 @@ export function ContextProvider(props) {
         setSearched(props)
     }
     
-    // return <Context.Provider value={{searched , researched}}>{props.children}</Context.Provider>
     return <Context.Provider value={{searched , researched, togglePrefered, prefered}}>{props.children}</Context.Provider>
 }
