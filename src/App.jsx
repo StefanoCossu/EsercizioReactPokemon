@@ -19,7 +19,7 @@ function App() {
       loader: loadApi
     },
     {
-      path: "/pokemon",
+      path: "/pokemons",
       element: <Pokemon />,
       loader: loadApi
     },

@@ -1,18 +1,15 @@
 import Card from "../Components/Card/Card"
 import {useLoaderData} from "react-router-dom"
-import {useState } from "react"
+import { useContext } from "react"
+import { Context } from "../Contexts/searched"
 export default function Pokemon(){
 
-    const [searched, setSearched]=useState("");
+    const {searched}=useContext(Context)
 
     let data = useLoaderData()
    
     return <div className='container mt-5'>
         <div className="row">
-        <div className="col-12 d-flex justify-content-center align-items-center my-5">
-                <input type="text" placeholder="Scrivi nome Pokemon" onChange={(e)=>setSearched(e.target.value)} value={searched}/>
-                <p>{searched}</p>
-            </div>
         {data &&(
             data.results.map((el)=>{
             return  <div className={`col-12 col-md-4 ${searched == "" ? "d-block" : el.name.includes(searched.toLowerCase()) ? "d-block" : "d-none" }`} key={el.name}>

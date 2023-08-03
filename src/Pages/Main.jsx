@@ -12,7 +12,7 @@ export default function Main(){
             </div>
             <div className="col-6 d-flex flex-column align-items-center">
                 <h2>Pokemon</h2>
-                <Link to={"/pokemon"} className="btn btn-primary bg-success">Vai ai Pokemon</Link>
+                <Link to={"/pokemons"} className="btn btn-primary bg-success">Vai ai Pokemon</Link>
             </div>
         </div>
     </div>

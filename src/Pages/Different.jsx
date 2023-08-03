@@ -3,9 +3,11 @@ import {useLoaderData} from "react-router-dom"
 export default function Different() {
     let data = useLoaderData()
     let n=0
+
     function counter (){
         return n++
     }
+
     function translate(data) {
     let day=  data.weekday
       switch (day) {
@@ -33,8 +35,9 @@ export default function Different() {
       } 
       return day 
     }
-    let date = new Date().toLocaleDateString("de-DE");
-    console.log(data);
+
+    let date = new Date().toLocaleDateString("it-IT");
+    // console.log(data);
     
     return <div className="container mt-5">
         <h1 className="text-center display-1 lead">Invoca il Santo giusto!</h1>
