@@ -8,7 +8,7 @@ export function ContextProvider(props) {
     let saved = localStorage.getItem("prefered") ? (localStorage.getItem("prefered").length > 0 ? localStorage.getItem("prefered") : null) : null
     
     const [searched, setSearched] = useState("");
-    const [prefered,setPrefered] = useState((saved ? JSON.parse(saved) : []));
+    const [prefered,setPrefered] = useState(saved ? JSON.parse(saved) : []);
     // controllare se già presente qualcosa nel local storage
     
     useEffect(()=>{
