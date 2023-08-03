@@ -39,7 +39,7 @@ export default function Different() {
     return <div className="container mt-5">
         <h1 className="text-center display-1 lead">Invoca il Santo giusto!</h1>
         <div className="row pt-5">
-        {data.celebrations.length == 1 &&(
+        {(data && data.celebrations.length == 1) &&(
              <div className="col-12 text-center" key={counter()}>
                 
 
@@ -47,12 +47,12 @@ export default function Different() {
                 </div>
                 
             )}
-            {(data.celebrations.length > 1) && (
+            {(data && data.celebrations.length > 1) && (
                 <div>
                     <h2 className="col-12 text-center my-5">Oggi {translate(data)} {date} invoca i santi:</h2>
                 </div>)
             }
-            {(data.celebrations.length > 1) && data.celebrations.slice(1).map((el)=>{
+            {(data && data.celebrations.length > 1) && data.celebrations.slice(1).map((el)=>{
             return <div className="col-12 text-center" key={counter()}>
                 <h2>{el.title}</h2>
                 </div>
@@ -79,6 +79,6 @@ export async function loadDif(){
     return toFetch
     }
     
-    const data = await fetch("http://calapi.inadiutorium.cz/api/v0/en/calendars/default/2023/08/01").then((r)=>r.json());
+    const data = await fetch(createDate()).then((r)=>r.json());
     return data
 }
