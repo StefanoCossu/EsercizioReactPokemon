@@ -13,7 +13,6 @@ export default function Navbar() {
                 <Link to="/" className="btn btn-primary ms-5">Pagina principale</Link>
             </div>         
                 <SearchBar/>
-
         </div>
     </nav>
     )

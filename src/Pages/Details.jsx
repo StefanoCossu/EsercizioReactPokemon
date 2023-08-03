@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import {defer, useLoaderData, Await} from "react-router-dom"
 export default function Details(){
-    
+   
     const detail = useLoaderData()
     return(
         <div className="container mt-5">

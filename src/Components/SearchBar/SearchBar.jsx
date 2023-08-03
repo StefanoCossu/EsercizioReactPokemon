@@ -4,8 +4,6 @@ import { useContext } from "react"
 
 export default function SearchBar() {
 
-
-
 const {searched, researched}=useContext(Context)
 
     return <>

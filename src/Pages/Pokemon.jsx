@@ -12,7 +12,7 @@ export default function Pokemon(){
         <div className="row">
         {data &&(
             data.results.map((el)=>{
-            return  <div className={`col-12 col-md-4 ${searched == "" ? "d-block" : el.name.includes(searched.toLowerCase()) ? "d-block" : "d-none" }`} key={el.name}>
+            return  <div className={`col-12 col-md-4 ${searched === "" ? "d-block" : el.name.includes(searched.toLowerCase()) ? "d-block" : "d-none" }`} key={el.name}>
                 <Card pokemon={el}/>
              </div>
 
