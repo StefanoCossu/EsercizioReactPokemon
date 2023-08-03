@@ -1,5 +1,4 @@
 import {useLoaderData} from "react-router-dom"
-// import {useState } from "react"
 
 export default function Different() {
     let data = useLoaderData()
@@ -35,6 +34,7 @@ export default function Different() {
       return day 
     }
     let date = new Date().toLocaleDateString("de-DE");
+    console.log(data);
     
     return <div className="container mt-5">
         <h1 className="text-center display-1 lead">Invoca il Santo giusto!</h1>
@@ -65,7 +65,8 @@ export default function Different() {
 }
 
 export async function loadDif(){
-    const date = new Date();
+    function createDate() {
+        const date = new Date();
 
     let day = date.getDate();
     let month = date.getMonth()+1;
@@ -74,7 +75,10 @@ export async function loadDif(){
     }
     let year = date.getFullYear();
     let today = `${year}/${month}/${day}`;
-
-    const data = await fetch(`http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${today}`).then((r)=>r.json());
+    const toFetch = `http://calapi.inadiutorium.cz/api/v0/en/calendars/default/${today}`
+    return toFetch
+    }
+    
+    const data = await fetch("http://calapi.inadiutorium.cz/api/v0/en/calendars/default/2023/08/01").then((r)=>r.json());
     return data
 }
