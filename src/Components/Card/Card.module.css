@@ -1,0 +1,13 @@
+.prefered::before{
+    content: "Preferito";
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    height: 30px;
+    background: red;
+    padding: 3px;
+    margin-right: 5px;
+    color: white;
+    font-size: 22px;
+}

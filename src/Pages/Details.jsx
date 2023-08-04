@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import {defer, useLoaderData, Await} from "react-router-dom"
 import { Context } from "../Contexts/searched"
 import { useContext } from "react"
+
 export default function Details(){
    
     const {prefered,togglePrefered} = useContext(Context)
